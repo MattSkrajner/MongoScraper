@@ -1,6 +1,6 @@
 body {
-    background-image: url("/assets/images/background.jpg");
-    padding-top: 70px;
+    background: navy;
+    padding-top: 40px;
 }
 
 .deleteNote {
