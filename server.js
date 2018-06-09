@@ -12,13 +12,8 @@ var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
 var exphbs = require("express-handlebars");
 
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
 
 //Define port
 var port = process.env.PORT || 3000
@@ -41,10 +36,10 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-// // Database configuration with mongoose
-// mongoose.connect("mongodb://heroku_jmv816f9:5j1nd4taq42hi29bfm5hobeujd@ds133192.mlab.com:33192/heroku_jmv816f9");
-// // mongoose.connect("mongodb://localhost/mongoscraper");
-// var db = mongoose.connection;
+// Database configuration with mongoose
+mongoose.connect("mongodb://heroku_jmv816f9:5j1nd4taq42hi29bfm5hobeujd@ds133192.mlab.com:33192/heroku_jmv816f9");
+// mongoose.connect("mongodb://localhost/mongoscraper");
+var db = mongoose.connection;
 
 // Show any mongoose errors
 db.on("error", function(error) {
