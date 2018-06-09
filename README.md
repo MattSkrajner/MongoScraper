@@ -1,4 +1,4 @@
-# New York Times Article Scraper
+# New York Times MongoDB Scraper
 
 The app is deployed on Heroku here: https://evening-dusk-58740.herokuapp.com/
 
