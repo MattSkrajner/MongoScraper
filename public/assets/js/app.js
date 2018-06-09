@@ -1,21 +1,11 @@
-//Handle Scrape button
-$("#scrape").on("click", function() {
-    $.ajax({
-        method: "GET",
-        url: "/scrape",
-    }).done(function(data) {
-        console.log(data)
-        window.location = "/"
-    })
-});
 
-//Set clicked nav option to active
+//nav bar active
 $(".navbar-nav li").click(function() {
    $(".navbar-nav li").removeClass("active");
    $(this).addClass("active");
 });
 
-//Handle Save Article button
+//save story button
 $(".save").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
@@ -26,7 +16,7 @@ $(".save").on("click", function() {
     })
 });
 
-//Handle Delete Article button
+//delete story button
 $(".delete").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
@@ -37,7 +27,7 @@ $(".delete").on("click", function() {
     })
 });
 
-//Handle Save Note button
+//save note button
 $(".saveNote").on("click", function() {
     var thisId = $(this).attr("data-id");
     if (!$("#noteText" + thisId).val()) {
@@ -50,7 +40,6 @@ $(".saveNote").on("click", function() {
               text: $("#noteText" + thisId).val()
             }
           }).done(function(data) {
-              // Log the response
               console.log(data);
               // Empty the notes section
               $("#noteText" + thisId).val("");
@@ -60,7 +49,7 @@ $(".saveNote").on("click", function() {
     }
 });
 
-//Handle Delete Note button
+//delete note button
 $(".deleteNote").on("click", function() {
     var noteId = $(this).attr("data-note-id");
     var articleId = $(this).attr("data-article-id");
